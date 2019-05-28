@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Ejercicio 9</title>
+
+</head>
+
+<body>
+<script>
+
+function Palindromo()
+{
+	var palabra=prompt("Escribe una palabra");
+  
+	for (var i=0;i<palabra.length;i++){
+		if(palabra[i]!=palabra[palabra.length-i-1]){
+			return false;
+		}
+	}
+	return true;
+}
+ 
+if(Palindromo())
+{
+	alert("Esto es palíndromo");
+}else{
+	alert("Esto no es palíndromo")
+}
+</script>
+
+</body>
+
+
+</html>

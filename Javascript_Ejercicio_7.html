@@ -1,0 +1,29 @@
+<!--Escriba una función a la que se pase como parámetro un número entero y devuelva como resultado una cadena de texto
+indicando si el número pasado como parámetro es par o impar. Mostrar en consola el resultado de la función.
+ -->
+<html>
+<head>
+
+<
+<title>Ejercicio 7</title>
+
+<script type="text/javascript">
+var numero = prompt("Introduce un número entero");
+
+var resultado = parImpar(numero);
+alert("El número "+numero+" es "+resultado);
+
+function parImpar(numero) {
+  if(numero % 2 == 0) {
+    return "par";
+  }
+  else {
+    return "impar";
+  }
+}
+</script>
+</head>
+
+<body>
+</body>
+</html>

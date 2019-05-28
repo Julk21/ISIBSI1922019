@@ -1,0 +1,35 @@
+<!-- Defina una función que muestre información sobre una cadena de texto pasada como argumento. La función debe indicar si
+la cadena está formada sólo por mayúsculas, sólo por minúsculas o por una mezcla de ambas.
+ -->
+<html>
+<head>
+<title>Ejercicio 8</title>
+
+<script type="text/javascript">
+function info(oracion) {
+
+  var resultado = "La oracion \""+oracion+"\" ";
+
+  // Comprobar mayúsculas y minúsculas
+  if(oracion == oracion.toUpperCase()) {
+    resultado += " Esta formada sóolo por mayusculas";
+  }
+  else if(oracion == oracion.toLowerCase()) {
+    resultado += " Esta formada sóolo por minúsculas";
+  }
+  else {
+    resultado += " Está formada por mayusculas y minusculas";
+  }
+
+  return resultado;
+}
+alert(info("ATENCION = HAY QUE HACER LA TAREA DE PROGRA"));
+alert(info("la tarea es para el miercoles 29"));
+alert(info("Hay que subirla a UN REPOSITORIO"));
+
+</script>
+</head>
+
+<body>
+</body>
+</html>
