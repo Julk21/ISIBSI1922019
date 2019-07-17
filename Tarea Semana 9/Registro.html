@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registro Concurso</title>
+     <link rel="stylesheet" type="text/css" href="Diseno.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+     <script type="text/javascript">
+     	$(document).ready(function()){
+     	$('#btn_datos').click(function()){
+     		var Cedula_Usuario = $('#Cedula').val();
+     		var resultElement = $('#resultdiv');
+
+     		$.ajax({
+     			url: 'https://apis.gometa.org/cedulas'+Cedula_Usuario, dataType:'json', success: function(data){
+     				var Nombre = data.results[0].firstname1;
+     				var Apellidos = data.results[0].lastname;
+
+     				document.getElementById("name").value = Nombre;
+     				document.getElementById("apell").value = Apellidos;
+
+
+     			},
+     			error: function(xhr, ajaxOptions, trownError){
+     				alert(xhr.responseText + "\n" + xhr.status + "\n" + trownError);}
+
+     			});
+
+     		
+     </script>
+
+     <script type="text/javascript">
+     	$(document).ready(function()){
+     		$('#Provincia').change(function){
+
+     			provID = $('#Provincia').val();
+
+     		$('#canton').show();
+
+     			$('Canton').empty();
+
+     $.getJSON('https://ubicaciones.paginasweb.cr/Provincia/'+provID+'/Canton.json',function(data){
+     	$each(data, function(key, val){
+     		$('#canton').append('<option>'+ val + '</option>');
+     	});
+     		});
+     };
+     	};
+
+     </script>
+<div class="header">
+  <h1>Registro Consurso</h1>
+  
+</div>
+
+  </head>
+
+  <center>
+  <div class="form">
+	
+		<p>
+<label for="Cedula" required pattern="[0-9]{9,9}" placeholder="Cedula 9 digitos"><span>Ingrese numero de Cedula</span></label>
+	<input type="text" id="Cedula "name="Cedula" class="input-field">
+		<br>
+
+		<input type="button" id="btn_datos" class="form-btn" value="Enviar Datos">
+
+		<p>
+		<label for="Nombre"><span>Nombre:</span></label>
+		<input type="text" id="name" name="Nombre" class="input-field" placeholder="Nombre"  required></p>
+		<br>
+
+		<p>
+		<label for="Apellidos"><span>Apellidos</span></label>
+		<input type="text" id="apell" name="Apellidos" class="input-field"  placeholder="Apellidos" required></p>
+		<br>
+
+		
+<p>
+		<label for="Telefono">Telefono:</label>
+		<input type="number" name="Telefono" placeholder="Telefono 8 digitos numericos" minlength="8" maxlength="8" required>
+		<br>
+
+		<p>
+		<label for="Provincia">Provincia:</label>
+		<select name="Provincia">
+		<option>San Jose</option>
+		<option>Limon</option>
+		<option>Cartago</option>
+		<option>Puntarenas</option>
+		<option>Heredia</option>
+		<option>Guanacaste</option>
+		<option>Alajuela</option>
+		</select> </p>
+		
+
+		<p>
+		<label for="Canton">Canton:</label>
+		<select name="Canton">
+		<option></option>
+		</select></p>
+		
+
+		<p>
+		<label for="Distrito">Distrito:</label>
+		<select name="Distrito">
+		<option></option>
+		</select></p>
+		<br>
+
+        <p>
+		<label for="DireccionE"></label>
+		<textarea  name="DireccionE" placeholder="Direccion de Exacta" required ></textarea>
+		<br>
+
+	<br>
+	
+		
+
+			</center>
+		
+  </body>
+
+
+</html>
